@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registratie Vocht & Voeding</title>
+  <style>
+    body {
+     font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1abc9c; /* Effen achtergrondkleur */
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .blok {
+      margin-bottom: 30px;
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="date"], input[type="number"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #a51863;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #8e1556;
+    }
+    #totaalVocht {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registratie Vocht &amp; Voeding</h1>
+  <form>
+    <div class="blok">
+      <h2>Gegevens cliënt</h2>
+      <label>Naam bewoner</label>
+      <input type="text" name="bewoner">
+      <label>Afdeling en kamernummer</label>
+      <input type="text" name="afdeling">
+      <label>Datum</label>
+      <input type="date" name="datum">
+    </div>
+
+    <div class="blok">
+      <h2>Ontbijt</h2>
+      <label>Brood of pap</label>
+      <select>
+        <option>Geen</option>
+        <option>Wit</option>
+        <option>Bruin</option>
+        <option>Volkoren</option>
+        <option>Beschuit</option>
+        <option>Roggebrood</option>
+        <option>Griesmeel</option>
+        <option>Havermout</option>
+      </select>
+            <label>Besmeerd met</label>
+      <select>
+        <option>Geen</option>
+        <option>Margarine</option>
+        <option>Roomboter</option>
+      </select>
+      <label>Beleg</label>
+      <select>
+        <option>Geen</option>
+        <option>Kaas</option>
+        <option>Vleeswaren</option>
+        <option>Jam</option>
+        <option>Pindakaas</option>
+        <option>Hagelslag</option>
+        <option>Ei</option>
+      </select>
+      
+      <label>Dranken</label>
+      <select id="drankenOntbijt">
+        <option>Geen</option>
+        <option>Water</option>
+        <option>Melk, karnemelk of Chocolademelk</option>
+        <option>Thee</option>
+        <option>Thee met suiker</option>
+        <option>Thee met melk</option>
+        <option>Thee met suiker en melk</option>
+        <option>Koffie</option>
+        <option>Koffie met suiker</option>
+        <option>Koffie met melk</option>
+        <option>Koffie met suiker en melk</option>
+        <option>Limonade</option>
+        <option value="anders">Anders, namelijk…</option>
+      </select>
+      <input 
+  type="text" 
+  id="andersDrank" 
+  placeholder="Vul hier in" 
+  style="display: none; margin-top: 5px;"
+>
+      <label>Aantal</label>
+      <select class="aantalDrank">
+   
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label>Hoeveelheid vocht in ml</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 150">
+    </div>
+
+        <div class="blok">
+      <h2>In de loop van de morgen</h2>
+            <label>Dranken</label>
+      <select id="drankenOntbijt">
+        <option>Geen</option>
+        <option>Water</option>
+        <option>Melk of karnemelk</option>
+        <option>Thee</option>
+        <option>Thee met suiker</option>
+        <option>Thee met melk</option>
+        <option>Thee met suiker en melk</option>
+        <option>Koffie</option>
+        <option>Koffie met suiker</option>
+        <option>Koffie met melk</option>
+        <option>Koffie met suiker en melk</option>
+        <option>Limonade</option>
+        <option>Sinaasappelsap</option>
+        <option>Frisdrank</option>
+        <option value="anders">Anders, namelijk…</option>
+      </select>
+      <input 
+  type="text" 
+  id="andersDrank" 
+  placeholder="Vul hier in" 
+  style="display: none; margin-top: 5px;"
+>
+      <label>Aantal</label>
+      <select class="aantalDrank">
+     
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label>Hoeveelheid vocht in ml</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 150">
+    
+    <label>Diversen</label>
+    <select>
+      <option>Geen</option>
+      <option>Stukje koek</option>
+      <option>Portie fruit</option>
+      <option>Gebak</option>
+      </select>
+      
+       <label>Aantal</label>
+       
+      <select>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+          </div>
+
+    <div class="blok">
+      <h2>Tweede broodmaaltijd</h2>
+      <label>Brood of pap</label>
+      <select>
+        <option>Geen</option>
+        <option>Wit</option>
+        <option>Bruin</option>
+        <option>Volkoren</option>
+        <option>Beschuit</option>
+        <option>Roggebrood</option>
+        <option>Griesmeel</option>
+        <option>Havermout</option>
+      </select>
+            <label>Besmeerd met</label>
+      <select>
+        <option>Geen</option>
+        <option>Margarine</option>
+        <option>Roomboter</option>
+      </select>
+      <label>Beleg</label>
+      <select>
+        <option>Geen</option>
+        <option>Kaas</option>
+        <option>Vleeswaren</option>
+        <option>Jam</option>
+        <option>Pindakaas</option>
+        <option>Hagelslag</option>
+        <option>Ei</option>
+      </select>
+      
+      <label>Dranken</label>
+      <select id="drankenOntbijt">
+        <option>Geen</option>
+        <option>Water</option>
+        <option>Melk, Karnemelk of Chocolademelk</option>
+        <option>Thee</option>
+        <option>Thee met suiker</option>
+        <option>Thee met melk</option>
+        <option>Thee met suiker en melk</option>
+        <option>Koffie</option>
+        <option>Koffie met suiker</option>
+        <option>Koffie met melk</option>
+        <option>Koffie met suiker en melk</option>
+        <option>Limonade</option>
+        <option value="anders">Anders, namelijk…</option>
+      </select>
+      <input 
+  type="text" 
+  id="andersDrank" 
+  placeholder="Vul hier in" 
+  style="display: none; margin-top: 5px;"
+>
+      <label>Aantal</label>
+      <select class="aantalDrank">
+     
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label>Hoeveelheid vocht in ml</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 150">
+    </div>
+
+    <div class="blok">
+      <h2>In de loop van de middag</h2>
+      <label>Dranken</label>
+      <select id="drankenOntbijt">
+        <option>Geen</option>
+        <option>Water</option>
+        <option>Melk of karnemelk</option>
+        <option>Thee</option>
+        <option>Thee met suiker</option>
+        <option>Thee met melk</option>
+        <option>Thee met suiker en melk</option>
+        <option>Koffie</option>
+        <option>Koffie met suiker</option>
+        <option>Koffie met melk</option>
+        <option>Koffie met suiker en melk</option>
+        <option>Limonade</option>
+        <option>Appelsap/Sinaasappelsap</option>
+        <option>Frisdrank</option>
+        <option value="anders">Anders, namelijk…</option>
+      </select>
+      <input 
+  type="text" 
+  id="andersDrank" 
+  placeholder="Vul hier in" 
+  style="display: none; margin-top: 5px;"
+>
+      <label>Aantal</label>
+      <select class="aantalDrank">
+      
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label>Hoeveelheid vocht in ml</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 150">
+    
+    <label>Diversen</label>
+    <select>
+      <option>Geen</option>
+      <option>Stukje koek</option>
+      <option>Portie fruit</option>
+      <option>Gebak</option>
+      </select>
+      
+       <label>Aantal</label>
+       
+      <select>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+          </div>
+
+
+    <div class="blok">
+      <h2>Warme maaltijd</h2>
+      <label>Soep</label>
+      <select>
+        <option>Geen</option>
+        <option>Tomatensoep</option>
+        <option>Groentesoep</option>
+        <option>Kippensoep</option>
+      </select>
+      <label>Gerecht</label>
+<select id="gerechtSelect">
+  <option>Geen</option>
+  <option>Aardappelen</option>
+  <option>Rijst</option>
+  <option>Pasta</option>
+  <option>Ovenschotel</option>
+  <option value="anders">Anders, namelijk...</option>
+</select>
+
+<label>Toelichting gerecht</label>
+<textarea rows="2" placeholder="Bijv. afwijkende maaltijd bij keuze 'Anders'"></textarea>
+      
+      <label>Hoeveelheid vocht in ml (soep)</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 200">
+    </div>
+    
+    <div class="blok">
+      <h2>In de loop van de avond</h2>
+      <label>Dranken</label>
+      <select>
+        <option>Geen</option>
+        <option>Water</option>
+        <option>Thee</option>
+        <option>Koffie</option>
+        <option>Limonade</option>
+	<option>Frisdrank</option>
+	<option>Bier of Wijn</option>
+      </select>
+      <label>Aantal</label>
+      <select class="aantalDrank"> 
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label>Hoeveelheid vocht in ml</label>
+      <input type="number" class="vochtinvoer" placeholder="Bijv. 150">
+      <label>Diversen</label>
+      <textarea rows="2" placeholder="Bijv. koek, fruit, kaas of worst"></textarea>
+    </div>
+
+    <div class="blok">
+      <h2>Bijzonderheden</h2>
+      <label>Bijvoeding ingesteld?</label>
+      <select>
+        <option>Nee</option><option>Ja</option>
+      </select>
+      <label>Welke soort</label>
+      <select>
+        <option>Geen</option><option>Ensure plus fresh</option><option>Enrich plus</option><option>Enlive</option><option>Nutridrink</option>
+      </select>
+      <label>Gebruikt polycose?</label>
+      <select>
+        <option>Nee</option><option>Ja</option>
+      </select>
+      <label>Verslikken?</label>
+      <select>
+        <option>Nee</option><option>Ja</option>
+      </select>
+      <label>In welke producten</label>
+      <textarea rows="2" placeholder="Type hier..."></textarea>
+      <label>Verdikkingsmiddel?</label>
+      <select>
+        <option>Nee</option><option>Ja</option>
+      </select>
+    </div>
+
+    <div class="blok">
+      <h2>Overig</h2>
+      <textarea rows="3" placeholder="Bijv. snoep, chips, bonbons..."></textarea>
+    </div>
+
+    <div class="blok">
+      <h2>Totale vochtinname vandaag</h2>
+      <div id="totaalVocht">0 ml</div>
+    </div>
+
+    <button type="button">Opslaan</button>
+  </form>
+
+  <script>
+    function berekenTotaalVocht() {
+  let totaal = 0;
+  const blokken = document.querySelectorAll('.blok');
+
+  blokken.forEach(blok => {
+const aantalInput = blok.querySelector('.aantalDrank');
+
+
+const aantal = aantalInput ? parseInt(aantalInput.value) || 0 : 1;
+const vochtInput = blok.querySelector('.vochtinvoer');
+    const hoeveelheid = parseInt(vochtInput?.value);
+    if (!isNaN(hoeveelheid)) {
+      totaal += hoeveelheid * aantal;
+    }
+  });
+
+  document.getElementById('totaalVocht').textContent = totaal + ' ml';
+}
+document.querySelectorAll('.vochtinvoer, .aantalDrank').forEach(el => {
+  el.addEventListener('input', berekenTotaalVocht);
+  el.addEventListener('change', berekenTotaalVocht);
+});
+</script>
+
+<script>
+  const drankenSelect = document.getElementById('drankenOntbijt');
+  const andersInput   = document.getElementById('andersDrank');
+
+  drankenSelect.addEventListener('change', () => {
+    if (drankenSelect.value === 'anders') {
+      andersInput.style.display = 'block';
+      andersInput.focus();
+    } else {
+      andersInput.style.display = 'none';
+      andersInput.value = '';
+    }
+  });
+</script>
+</body>
+</html>
